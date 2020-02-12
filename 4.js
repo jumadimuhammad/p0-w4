@@ -1,7 +1,30 @@
 function cariModus(arr) {
     // you can only write your code here!
 
-    
+  
+
+    var res = []
+    var hasil = []
+
+    var count = 0
+    for(var i = 0; i < arr.length; i++){
+      for(var j = 0; j < arr.length; j ++){
+        if (arr[i] == arr[j] && i != j){
+          res = arr[i]
+          count ++
+        }
+      }
+    }
+    if(count > arr.length-1){
+      return -1
+    }
+
+    if (count < 1){
+      return -1
+    }
+
+    return res
+   
   }
   
   // TEST CASES
