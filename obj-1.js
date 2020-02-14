@@ -27,7 +27,9 @@ function participantsSummary(data) {
       }
     }
 
-
+    if (data == 0){
+      return 'No participants'
+    }
     return hasil
 
   }
