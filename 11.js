@@ -14,7 +14,6 @@ function shoppingTime(memberId, money) {
         listPurchased:[],
         changeMoney:money
     }
-
     // var barang = ['Sepatu Stacattu', 'Baju Zoro', 'Baju H&N', 'Sweater Uniklooh', 'Casing Handphone']
     // var harga = [1500000, 500000, 250000, 175000, 50000]
 

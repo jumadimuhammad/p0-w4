@@ -1,5 +1,37 @@
 function highestScore (students) {
     // Code disini
+
+  
+    var obj = {}
+   
+
+    for(var i = 0; i < students.length; i ++){
+      for (var j = 0; j < students.length-1; j ++){
+        if (students[j].score > students[j+1].score){
+          var tamp = students[j+1]
+          students[j+1] = students[j]
+          students[j] = tamp          
+        }
+      }
+    }
+  
+    for (var k = 0; k < students.length; k ++){
+
+      if (students[k].class == 'foxes'){
+        obj['foxes'] = {name: students[k].name, score: students[k].score}
+      }
+      if (students[k].class == 'wolves'){
+        obj['wolves'] = {name: students[k].name, score: students[k].score}
+      }
+      if (students[k].class == 'tigers'){
+        obj['tigers'] = {name: students[k].name, score: students[k].score}
+      }
+
+    }
+
+    return obj
+    
+
   }
   
   // TEST CASE
@@ -16,7 +48,7 @@ function highestScore (students) {
     },
     {
       name: 'Sergei',
-      score: 74,
+      score: 94,
       class: 'foxes'
     },
     {

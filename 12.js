@@ -6,35 +6,39 @@ function countProfit(shoppers) {
   
     // you can only write your code here!
 
-    var hasil = [
-      {
-        product     : '',
-        shoppers    : '',
-        leftOver    : 0,
-        totalProfit : 0
-      }
-    ]
+    
 
-      if(shoppers == 0){
-        console.log('Invalid Input')
-      }else{
-        
-        for(var i = 0; i < shoppers.length; i ++){
-          
-          for(var j = 0; j < listBarang.length; j ++){
+    if (shoppers == 0){
+      return []
+    }
 
-            if (listBarang[j][2] > 0){
-              hasil.product     += listBarang[j][0]
-              hasil.shoppers    += shoppers[i].name
-              hasil.leftOver    += listBarang[j][2] - shoppers[i].amount
+    var hasil = []
+    for (var i = 0; i < listBarang.length; i ++){
+      hasil.push({
+        product   : listBarang[i][0],
+        shoppers  : [],
+        harga     : listBarang[i][1],
+        leftOver  : listBarang[i][2],
+        totalProfit: 0
+      })
+    }
 
-            }
-          }
-          
+    for (var j = 0; j< shoppers.length; j ++){
+      for(var k = 0; k < hasil.length; k ++){
+        if (shoppers[j].product == hasil[k].product && shoppers[j].amount <= hasil[k].leftOver){
+          hasil[k].shoppers.push(shoppers[j].name)
+          hasil[k].leftOver     = hasil[k].leftOver - shoppers[j].amount
+          hasil[k].totalProfit  += shoppers[j].amount * hasil[k].harga
         }
       }
+    }
 
-      return hasil
+
+    for (var m = 0; m < hasil.length; m ++){
+      delete hasil[m].harga
+    }
+    
+    return hasil
 
   }
   

@@ -1,5 +1,22 @@
 function graduates (students) {
     // Code disini
+
+    var obj = {}
+
+
+    for (var i = 0; i < students.length; i ++){
+
+      if (obj[students[i].class] == null && students[i].score > 75){
+        obj[students[i].class] = []
+        obj[students[i].class].push({name: students[i].name, score: students[i].score})
+      } else if(students[i].score > 75){
+        obj[students[i].class].push({name: students[i].name, score: students[i].score})
+      }
+
+    }
+
+    return obj
+
   }
   
   console.log(graduates([
@@ -24,7 +41,7 @@ function graduates (students) {
       class: 'wolves'
     }
   ]));
-  
+
   // {
   //   foxes: [
   //     { name: 'Dimitri', score: 90 }

@@ -1,5 +1,25 @@
 function deepSum (arr) {
     // Code disini
+  var tamp = 0
+  if (arr == 0){
+
+    return 'No Number'
+    
+  }else{
+
+    for (var i = 0; i < arr.length; i ++){
+      for (var j = 0; j < arr[i].length; j ++){
+        for( var k = 0; k < arr[i][j].length; k ++){
+          tamp += arr[i][j][k]
+        }
+        
+
+      }
+    }
+
+  }
+    return tamp
+    
   }
   
   //TEST CASE
